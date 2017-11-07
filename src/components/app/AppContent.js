@@ -29,6 +29,18 @@ class Home extends React.Component {
   }
 }
 
+class Holme extends React.Component {
+  render() {
+    return (
+      <div>
+        <h2>Home</h2>d
+
+            </div>
+    );
+  }
+}
+
+
 // Some folks find value in a centralized route config.
 // A route config is just data. React is great at mapping
 // data into components, and <Route> is a component.
@@ -118,6 +130,7 @@ const SidebarExample = () => (
           <li><Link to="/bubblegum">Bubblegum</Link></li>
           <li><Link to="/shoelaces">Shoelaces</Link></li>
         </ul>
+        
 
         {routes.map((route, index) => (
           // You can render a <Route> in as many places

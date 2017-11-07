@@ -9,6 +9,16 @@ import TipoTrabajadorList from './catalogo/tipoTrabajadores/List'
 import TipoTrabajadorForm from './catalogo/tipoTrabajadores/Form'
 import TrabajadorList from './catalogo/trabajadores/List'
 import TrabajadorForm from './catalogo/trabajadores/Form'
+import AlquilerList from './catalogo/alquileres/List'
+import AlquilerForm from './catalogo/alquileres/Form'
+import ClienteList from './catalogo/clientes/List'
+import ClienteForm from './catalogo/clientes/Form'
+import DetalleAlquilerList from './catalogo/detalleAlquileres/List'
+import DetalleAlquilerForm from './catalogo/detalleAlquileres/Form'
+
+
+
+
 import Login from './Login'
 
 const routese = [
@@ -128,7 +138,81 @@ const routes = [
         component: TrabajadorForm,
         novisible: true
       },
+
+      {
+        path: '/catalogo/alquileres/list',
+        exact: true,
+        title: 'Alquiler',
+        icon: 'send',
+        component: AlquilerList
+      },
+      {
+        path: '/catalogo/alquileres/new',
+        exact: true,
+        title: 'Alquiler New!',
+        icon: 'send',
+        component: AlquilerForm,
+        novisible: true
+      },
+      {
+        path: '/catalogo/alquileres/edit/:id',
+        exact: true,
+        title: 'Alquiler Edit!',
+        icon: 'send',
+        component: AlquilerForm,
+        novisible: true
+      },
+
+       {
+        path: '/catalogo/clientes/list',
+        exact: true,
+        title: 'Cliente',
+        icon: 'send',
+        component: ClienteList
+      },
+      {
+        path: '/catalogo/clientes/new',
+        exact: true,
+        title: 'Cliente New!',
+        icon: 'send',
+        component: ClienteForm,
+        novisible: true
+      },
+      {
+        path: '/catalogo/clientes/edit/:id',
+        exact: true,
+        title: 'Cliente Edit!',
+        icon: 'send',
+        component: ClienteForm,
+        novisible: true
+      },
+
+       {
+        path: '/catalogo/detalleAlquileres/list',
+        exact: true,
+        title: 'DetalleAlquiler',
+        icon: 'send',
+        component: DetalleAlquilerList
+      },
+      {
+        path: '/catalogo/detalleAlquileres/new',
+        exact: true,
+        title: 'DetalleAlquiler New!',
+        icon: 'send',
+        component: DetalleAlquilerForm,
+        novisible: true
+      },
+      {
+        path: '/catalogo/detalleAlquileres/edit/:id',
+        exact: true,
+        title: 'DetalleAlquiler Edit!',
+        icon: 'send',
+        component: DetalleAlquilerForm,
+        novisible: true
+      },
     ]
+    
+
     
   },
   
