@@ -1,8 +1,14 @@
 import { Content } from './app/AppContent'
 import { Home, Bus, Cart, About, Sandwiches }
   from './app/AppContent'
-import CategoriaList from './categorias/List'
-import CategoriaForm from './categorias/Form'
+import CategoriaList from './catalogo/categorias/List'
+import CategoriaForm from './catalogo/categorias/Form'
+import OficinaList from './catalogo/oficinas/List'
+import OficinaForm from './catalogo/oficinas/Form'
+import TipoTrabajadorList from './catalogo/tipoTrabajadores/List'
+import TipoTrabajadorForm from './catalogo/tipoTrabajadores/Form'
+import TrabajadorList from './catalogo/trabajadores/List'
+import TrabajadorForm from './catalogo/trabajadores/Form'
 import Login from './Login'
 
 const routese = [
@@ -18,53 +24,22 @@ const routese = [
 const routes = [
   {
     path: '/home',
-    title: 'Home!',
+    title: 'Home',
     icon: 'home',
     exact: true,
     component: Home
   },
-
-
-  {
-    path: '/sandwiches',
-    title: 'sandwiches!',
-    icon: 'send',
-    component: Sandwiches
-  },
-  {
-    path: '/tacos',
-    title: 'tacos!',
-    icon: 'list',
-    component: Content,
-    routes: [
-      {
-        path: '/tacos/bus',
-        title: 'bus!',
-        icon: 'send',
-        component: Bus
-      },
-      {
-        path: '/tacos/cart',
-        component: Cart
-      },
-      {
-        path: '/tacos/about/:id',
-        title: 'About!',
-        icon: 'send',
-        component: About
-      }
-    ]
-  },
+ 
   {
     path: '/catalogo',
-    title: 'Catalogo!',
+    title: 'Catalogo',
     icon: 'list',
     component: Content,
     routes: [
       {
         path: '/catalogo/categorias/list',
         exact: true,
-        title: 'Categorias!',
+        title: 'Categorias',
         icon: 'send',
         component: CategoriaList
       },
@@ -84,8 +59,79 @@ const routes = [
         component: CategoriaForm,
         novisible: true
       },
+      {
+        path: '/catalogo/oficinas/list',
+        exact: true,
+        title: 'Oficinas',
+        icon: 'send',
+        component: OficinaList
+      },
+      {
+        path: '/catalogo/oficinas/new',
+        exact: true,
+        title: 'Oficina New!',
+        icon: 'send',
+        component: OficinaForm,
+        novisible: true
+      },
+      {
+        path: '/catalogo/oficinas/edit/:id',
+        exact: true,
+        title: 'Oficina Edit!',
+        icon: 'send',
+        component: OficinaForm,
+        novisible: true
+      },
+      {
+        path: '/catalogo/tipoTrabajadores/list',
+        exact: true,
+        title: 'TipoEmpleado',
+        icon: 'send',
+        component: TipoTrabajadorList
+      },
+      {
+        path: '/catalogo/tipoTrabajadores/new',
+        exact: true,
+        title: 'Trabajador New!',
+        icon: 'send',
+        component: TipoTrabajadorForm,
+        novisible: true
+      },
+      {
+        path: '/catalogo/tipoTrabajadores/edit/:id',
+        exact: true,
+        title: 'Trabajador Edit!',
+        icon: 'send',
+        component: TipoTrabajadorForm,
+        novisible: true
+      },
+      {
+        path: '/catalogo/trabajadores/list',
+        exact: true,
+        title: 'Trabajador',
+        icon: 'send',
+        component: TrabajadorList
+      },
+      {
+        path: '/catalogo/trabajadores/new',
+        exact: true,
+        title: 'Trabajador New!',
+        icon: 'send',
+        component: TrabajadorForm,
+        novisible: true
+      },
+      {
+        path: '/catalogo/trabajadores/edit/:id',
+        exact: true,
+        title: 'Trabajador Edit!',
+        icon: 'send',
+        component: TrabajadorForm,
+        novisible: true
+      },
     ]
-  }
+    
+  },
+  
 ]
 
 export { routes, routese }

@@ -5,7 +5,8 @@ import Avatar from 'material-ui/Avatar'
 //import Typography from 'material-ui/Typography'
 //import TextField from 'material-ui/TextField';
 
-import { save, getById, update } from '../../actions/categoria-action'
+import { save, getById, update } from '../../../actions/oficina-action'
+import { getList , categoriaList } from '../../../actions/categoria-action'
 import { connect } from 'react-redux'
 
 class Form extends Component {
@@ -25,21 +26,20 @@ class Form extends Component {
         this.state = {
             id: props.data ? props.data.id : null,
             codigo: props.data ? props.data.codigo : '',
-            nombre: props.data ? props.data.nombre : ''
+            estado: props.data ? props.data.estado : '',
+            descripcion: props.data ? props.data.descripcion : '',
+            precio: props.data ? props.data.precio : '',
+            categoria: props.data ? props.data.categoria : ''     
         }
     }
-    /*
-        componentWillReceiveProps = (nextProps) => { // Load Asynchronously
-            const { data } = nextProps;
-            console.log('componentWillReceiveProps data:' + JSON.stringify(data))
-            this.setState({
-                id: data.id,
-                codigo: data.codigo,
-                nombre: data.nombre
-            })
-        }
-    */
-    componentWillMount = () => {
+    
+     componentWillMount = () => {
+        this.props.categoriaList("")
+    }
+    /*componentWillMount = () => {
+
+        this.props.getCategoriaList("")
+
         /*
         const { id } = this.props.match.params
         if (id) {
@@ -58,21 +58,25 @@ class Form extends Component {
             });
         }
         */
-    }
+    
 
 
-    componentDidMount = () => {
+   /* componentDidMount = () => {
         const { id } = this.props.match.params
         if (id) {
             this.props.getById(id).then(data => {
                 this.setState({
                     id: data.id,
                     codigo: data.codigo,
-                    nombre: data.nombre
+                    estado: data.estado,
+                    descripcion: data.descripcion,
+                    precio: data.precio,
+                    categoria: data.categoria,
+                   
                 });
             });
         }
-    }
+    }*/
 
     handleChange = (event) => {
         //this.setState({ value: event.target.value });
@@ -98,7 +102,9 @@ class Form extends Component {
     }
 
     render() {
-        //const { data } = this.props
+        
+        let {categoria_list} = this.props
+
         return (
             <Card>
                 <CardHeader
@@ -108,7 +114,7 @@ class Form extends Component {
                           </Avatar>
                     }
                     title="User Form"
-                    subheader="Users Form"
+                    subheader="Oficina Form"
                 />
                 <CardContent>
                     <form onSubmit={this.handleSubmit}>
@@ -116,11 +122,29 @@ class Form extends Component {
                             Codigo:
                             <input type="text" name="codigo" value={this.state.codigo} onChange={this.handleChange} />
                         </label>
-                        <br />
+                        
 
                         <label>
-                            Name:
-                            <input type="text" name="nombre" value={this.state.nombre} onChange={this.handleChange} />
+                            estado:
+                            <input type="text" name="estado" value={this.state.estado} onChange={this.handleChange} />
+                        </label>
+                        <label>
+                            descripcion:
+                            <input type="text" name="descripcion" value={this.state.descripcion} onChange={this.handleChange} />
+                        </label>
+                        <label>
+                            precio:
+                            <input type="text" name="precio" value={this.state.precio} onChange={this.handleChange} />
+                        </label>
+                       <label>
+                            categoria:
+                            <input 
+                            componentClass="select" placeholder="Seleccione un categoria" value={this.state.categoria} name="categoria"  onChange={this.handleChange} />
+                        
+                         {categoria_list.map((d, index) =>
+                                                    <option key={index}
+                                                            value={d.id}>{d.nombre}</option>
+                                                )} 
                         </label>
                         <input type="submit" value="Submit" />
                     </form>
@@ -131,17 +155,20 @@ class Form extends Component {
 }
 
 Form.propTypes = {
-    data: PropTypes.object
+    data: PropTypes.object,
+    categoria_list: PropTypes.array
 }
 
 const mapStateToProps = (state, props) => {
     if (props.match.params.id) {
         return {
-            data: state.categoria.list.find(item => item.id + '' === props.match.params.id + '')
+            data: state.oficina.list.find(item => item.id + '' === props.match.params.id + ''),
+            categoria_list: state.categoria.list,
         }
     }
     return {
-        data: null
+        data: null,
+        categoria_list: state.categoria.list,
     }
 
 }
@@ -158,6 +185,7 @@ const mapDispatchToProps = (dispatch) => {
 export default connect(mapStateToProps, {
     save,
     getById,
-    update
+    update,
+    categoriaList,
 
 })(Form)

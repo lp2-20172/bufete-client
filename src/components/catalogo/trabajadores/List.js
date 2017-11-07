@@ -7,7 +7,7 @@ import TextField from 'material-ui/TextField';
 import Table, { TableBody, TableCell, TableHead, TableRow } from 'material-ui/Table';
 import Paper from 'material-ui/Paper';
 
-import { getList, del } from '../../actions/categoria-action'
+import { getList, del } from '../../../actions/trabajador-action'
 import { connect } from 'react-redux'
 
 import Button from 'material-ui/Button';
@@ -29,7 +29,7 @@ class List extends Component {
     }
 
     handleClick = () => {
-        this.props.history.push('/catalogo/categorias/new');
+        this.props.history.push('/catalogo/trabajadores/new');
     }
 
     render() {
@@ -50,10 +50,10 @@ class List extends Component {
                             R
                           </Avatar>
                     }
-                    title="User List"
-                    subheader="Users list"
-                />
-
+                    title="trabajadores List"
+                    subheader="trabajadores list"
+                
+                />    
                 <CardContent>
                     <Typography component="p">
                         q={this.props.q}
@@ -65,8 +65,8 @@ class List extends Component {
                         value={this.props.q}
                         onChange={this.change}
                         margin="normal"
-                    />
-
+                    
+                        />
                     <Button fab color="primary" aria-label="add" onClick={this.handleClick}>
                         <AddIcon />
                     </Button>
@@ -78,10 +78,9 @@ class List extends Component {
                             <TableHead>
                                 <TableRow>
                                     <TableCell>#</TableCell>
-                                    <TableCell >Nombre</TableCell>
-                                    <TableCell >Código</TableCell>
-                                    <TableCell >Edit</TableCell>
-                                    <TableCell >Delete</TableCell>
+                                    <TableCell >Tipo Empleado</TableCell>
+                                    <TableCell >Trabajador</TableCell>
+                                    
                                 </TableRow>
                             </TableHead>
 
@@ -89,10 +88,11 @@ class List extends Component {
                                 {list.map((d, index) =>
                                     <TableRow key={index}>
                                         <TableCell numeric>{index + 1}</TableCell>
-                                        <TableCell >{d.nombre}</TableCell>
-                                        <TableCell >{d.codigo}</TableCell>
+                                        <TableCell >{d.tipoEmpleado}</TableCell>
+                                        <TableCell >{d.trabajador}</TableCell>
+                                       
                                         <TableCell >
-                                            <Link to={`/catalogo/categorias/edit/${d.id}`} className="ui basic button green">Edit</Link>
+                                            <Link to={`/catalogo/trabajadores/edit/${d.id}`} className="ui basic button green">Edit</Link>
                                         </TableCell>
                                         <TableCell >
                                             <Button onClick={() => del(d.id, this.props.history)} >Delete</Button>
@@ -114,7 +114,7 @@ List.propTypes = {
 
 const mapStateToProps = (state) => {
     return {
-        list: state.categoria.list
+        list: state.trabajador.list
     }
 }
 
