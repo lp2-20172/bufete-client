@@ -59,22 +59,23 @@ class Form extends Component {
     
 
 
-   /* componentDidMount = () => {
+    componentDidMount = () => {
         const { id } = this.props.match.params
         if (id) {
             this.props.getById(id).then(data => {
                 this.setState({
                     id: data.id,
                     codigo: data.codigo,
-                    fechaSalida: data.estado,
-                    descripcion: data.descripcion,
-                    precio: data.precio,
-                    categoria: data.categoria,
+                    fechaEntrada: data.fechaEntrada,
+                    fechaSalida: data.fechaSalida,
+                    cliente: data.cliente,
+                    trabajador: data.trabajador,
+                    oficina: data.oficina
                    
                 });
             });
         }
-    }*/
+    }
 
     handleChange = (event) => {
         //this.setState({ value: event.target.value });
@@ -118,13 +119,13 @@ class Form extends Component {
                     <form onSubmit={this.handleSubmit}>
                         <label>
                             fechaEntrada:
-                            <input type="text" name="fechaEntrada" value={this.state.fechaEntrada} onChange={this.handleChange} />
+                            <input type="date" name="fechaEntrada" value={this.state.fechaEntrada} onChange={this.handleChange} />
                         </label>
                         
 
                         <label>
                             fechaSalida:
-                            <input type="text" name="fechaSalida" value={this.state.fechaSalida} onChange={this.handleChange} />
+                            <input type="date" name="fechaSalida" value={this.state.fechaSalida} onChange={this.handleChange} />
                         </label>
                         <label>
                             cliente:

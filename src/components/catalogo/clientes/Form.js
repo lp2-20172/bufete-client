@@ -115,33 +115,17 @@ class Form extends Component {
                 <CardContent>
                     <form onSubmit={this.handleSubmit}>
                         <label>
-                            fechaEntrada:
-                            <input type="date" name="fechaEntrada" value={this.state.fechaEntrada} onChange={this.handleChange} />
+                            Cliente:
+                            <input type="text" name="cliente" value={this.state.cliente} onChange={this.handleChange} />
                         </label>
                         
 
                         <label>
-                            fechaSalida:
-                            <input type="date" name="fechaSalida" value={this.state.fechaSalida} onChange={this.handleChange} />
+                            Ruc:
+                            <input type="double" name="ruc" value={this.state.ruc} onChange={this.handleChange} />
                         </label>
-                        <label>
-                            cliente:
-                            <input type="text" name="cliente" value={this.state.cliente} onChange={this.handleChange} />
-                        </label>
-                        <label>
-                            trabajador:
-                            <input type="text" name="trabajador" value={this.state.trabajador} onChange={this.handleChange} />
-                        </label>
-                       <label>
-                            oficina:
-                            <input 
-                            componentClass="select" placeholder="Seleccione un oficina" value={this.state.oficina} name="categoria"  onChange={this.handleChange} />
                         
-                         {categoria_list.map((d, index) =>
-                                                    <option key={index}
-                                                            value={d.id}>{d.nombre}</option>
-                                                )} 
-                        </label>
+                       
                         <input type="submit" value="Submit" />
                     </form>
                 </CardContent>
