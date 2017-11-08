@@ -96,7 +96,7 @@ class List extends Component {
                                         <TableCell >{d.fechaSalida}</TableCell>
                                         <TableCell >{d.cliente}</TableCell>
                                         <TableCell >{d.trabajador}</TableCell>
-                                        <TableCell >{d.oficina}</TableCell>
+                                        <TableCell >{d.oficina}</TableCell>-
                                         <TableCell >
                                             <Link to={`/catalogo/alquileres/edit/${d.id}`} className="ui basic button green">Edit</Link>
                                         </TableCell>

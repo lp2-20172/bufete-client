@@ -26,7 +26,7 @@ class Form extends Component {
         this.state = {
             id: props.data ? props.data.id : null,
             cliente: props.data ? props.data.cliente : '',
-            ruc: props.data ? props.data.ruc : '',
+            ruc: props.data ? props.data.ruc : ''
                
         }
     }
@@ -57,22 +57,20 @@ class Form extends Component {
     
 
 
-   /* componentDidMount = () => {
+    componentDidMount = () => {
         const { id } = this.props.match.params
         if (id) {
             this.props.getById(id).then(data => {
                 this.setState({
                     id: data.id,
-                    codigo: data.codigo,
-                    fechaSalida: data.estado,
-                    descripcion: data.descripcion,
-                    precio: data.precio,
-                    categoria: data.categoria,
+                    cliente: data.cliente,
+                    ruc: data.ruc,
+                    
                    
                 });
             });
         }
-    }*/
+    }
 
     handleChange = (event) => {
         //this.setState({ value: event.target.value });
@@ -109,8 +107,8 @@ class Form extends Component {
                             R
                           </Avatar>
                     }
-                    title="User Form"
-                    subheader="Oficina Form"
+                    title="Cliente Form"
+                    subheader="cliente Form"
                 />
                 <CardContent>
                     <form onSubmit={this.handleSubmit}>
@@ -136,19 +134,20 @@ class Form extends Component {
 
 Form.propTypes = {
     data: PropTypes.object,
-    categoria_list: PropTypes.array
+    
 }
 
 const mapStateToProps = (state, props) => {
     if (props.match.params.id) {
         return {
-            data: state.oficina.list.find(item => item.id + '' === props.match.params.id + ''),
-            categoria_list: state.categoria.list,
+           data: state.cliente.list.find(item => item.id + '' === props.match.params.id + '')
+            
         }
+
+      
     }
     return {
-        data: null,
-        categoria_list: state.categoria.list,
+        data: null
     }
 
 }
