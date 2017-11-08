@@ -39,6 +39,42 @@ const routes = [
     exact: true,
     component: Home
   },
+  {
+    path: '/core',
+    title: 'Core',
+    icon: 'list',
+    component: Content,
+    routes: [
+     
+
+       {
+        path: '/catalogo/categorias/list',
+        exact: true,
+        title: 'Categorias',
+        icon: 'send',
+        component: CategoriaList
+      },
+      {
+        path: '/catalogo/categorias/new',
+        exact: true,
+        title: 'Categoria New!',
+        icon: 'send',
+        component: CategoriaForm,
+        novisible: true
+      },
+      {
+        path: '/catalogo/categorias/edit/:id',
+        exact: true,
+        title: 'Categoria Edit!',
+        icon: 'send',
+        component: CategoriaForm,
+        novisible: true
+      }, 
+
+
+  ]
+},
+
  
   {
     path: '/catalogo',
@@ -211,11 +247,12 @@ const routes = [
         novisible: true
       },
     ]
-    
+
 
     
   },
-  
+
 ]
+
 
 export { routes, routese }
