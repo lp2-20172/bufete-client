@@ -9,6 +9,8 @@ import trabajador from './trabajador-reducer'
 import alquiler from './alquiler-reducer'
 import cliente from './cliente-reducer'
 import detalleAlquiler from './detalleAlquiler-reducer'
+import user from './user-reducer'
+
 //import ecomm from './ecommReducer'
 import themeReducer from './appLayoutReducer'
 
@@ -23,6 +25,7 @@ var reducers = combineReducers({
   trabajador: trabajador,
   cliente: cliente,
   detalleAlquiler: detalleAlquiler,
+   user: user,
   //  ecomm: ecomm,
   theme:themeReducer,
 

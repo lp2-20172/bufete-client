@@ -15,6 +15,8 @@ import ClienteList from './catalogo/clientes/List'
 import ClienteForm from './catalogo/clientes/Form'
 import DetalleAlquilerList from './catalogo/detalleAlquileres/List'
 import DetalleAlquilerForm from './catalogo/detalleAlquileres/Form'
+import UserList from './core/user/List'
+import UserForm from './core/user/Form'
 
 
 
@@ -39,41 +41,8 @@ const routes = [
     exact: true,
     component: Home
   },
-  {
-    path: '/core',
-    title: 'Core',
-    icon: 'list',
-    component: Content,
-    routes: [
-     
-
-       {
-        path: '/catalogo/categorias/list',
-        exact: true,
-        title: 'Categorias',
-        icon: 'send',
-        component: CategoriaList
-      },
-      {
-        path: '/catalogo/categorias/new',
-        exact: true,
-        title: 'Categoria New!',
-        icon: 'send',
-        component: CategoriaForm,
-        novisible: true
-      },
-      {
-        path: '/catalogo/categorias/edit/:id',
-        exact: true,
-        title: 'Categoria Edit!',
-        icon: 'send',
-        component: CategoriaForm,
-        novisible: true
-      }, 
 
 
-  ]
-},
 
  
   {
@@ -251,8 +220,43 @@ const routes = [
 
     
   },
+  {
+    path: '/core',
+    title: 'Core',
+    icon: 'list',
+    component: Content,
+    routes: [
+     
 
-]
+       {
+        path: '/core/users/list',
+        exact: true,
+        title: 'users',
+        icon: 'send',
+        component: UserList
+      },
+      {
+        path: '/core/users/new',
+        exact: true,
+        title: 'User New!',
+        icon: 'send',
+        component: UserForm,
+        novisible: true
+      },
+      {
+        path: '/core/users/edit/:id',
+        exact: true,
+        title: 'User Edit!',
+        icon: 'send',
+        component: UserForm,
+        novisible: true
+      }, 
+
+      ]
+    }
+  ] 
+
+
 
 
 export { routes, routese }
