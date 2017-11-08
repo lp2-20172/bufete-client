@@ -1,6 +1,6 @@
 const config = {
-    url: "http://localhost:8003/o/authorize/",
-    client: "SuUVhUFP8FUI4koaaAFZF3jfnhtSYOIbm4qS2Cmc",
+    url: "https://juridicoss.herokuapp.com/o/authorize/",
+    client: "CkHbVhWkps8QD2r5XPfp6zEJL58f8dEOUEXHB94r",
     redirect: "http://localhost:3000",
     scope: "read",
     width: 400, // Width (in pixels) of login popup window. Optional, default: 400
