@@ -4,7 +4,7 @@ import client from './'
 
 //https://github.com/brandiqa/redux-crud-example/blob/master/src/actions/contact-actions.js#L22
 
-const url = '/api-catalogo/detalleAlquilers/'
+const url = '/api-catalogo/detalleAlquileres/'
 
 export const DETALLEALQUILER_LIST_REQUEST = "DETALLEALQUILER_LIST_REQUEST"
 export const DETALLEALQUILER_LIST_SUCCESS = 'DETALLEALQUILER_LIST_SUCCESS'

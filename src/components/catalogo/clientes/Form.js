@@ -116,13 +116,13 @@ class Form extends Component {
                     <form onSubmit={this.handleSubmit}>
                         <label>
                             fechaEntrada:
-                            <input type="text" name="fechaEntrada" value={this.state.fechaEntrada} onChange={this.handleChange} />
+                            <input type="date" name="fechaEntrada" value={this.state.fechaEntrada} onChange={this.handleChange} />
                         </label>
                         
 
                         <label>
                             fechaSalida:
-                            <input type="text" name="fechaSalida" value={this.state.fechaSalida} onChange={this.handleChange} />
+                            <input type="date" name="fechaSalida" value={this.state.fechaSalida} onChange={this.handleChange} />
                         </label>
                         <label>
                             cliente:

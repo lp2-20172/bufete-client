@@ -50,7 +50,7 @@ class List extends Component {
                             R
                           </Avatar>
                     }
-                    title="detalleAlquileres List"
+                    title="Lista de Alquileres"
                     subheader="detalleAlquileres list"
                 
                 />    
@@ -91,9 +91,9 @@ class List extends Component {
                                 {list.map((d, index) =>
                                     <TableRow key={index}>
                                         <TableCell numeric>{index + 1}</TableCell>
-                                        <TableCell >{d.NroDoc}</TableCell>
-                                        <TableCell >{d.Total}</TableCell>
-                                        <TableCell >{d.Alquiler}</TableCell>
+                                        <TableCell >{d.nro_doc}</TableCell>
+                                        <TableCell >{d.total}</TableCell>
+                                        <TableCell >{d.alquiler}</TableCell>
                                       
                                         <TableCell >
                                             <Link to={`/catalogo/detalleAlquileres/edit/${d.id}`} className="ui basic button green">Edit</Link>
@@ -118,6 +118,7 @@ List.propTypes = {
 
 const mapStateToProps = (state) => {
     return {
+        list: state.detalleAlquiler.list
        
     }
 }

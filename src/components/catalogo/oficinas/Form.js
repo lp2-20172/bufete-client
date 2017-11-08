@@ -61,7 +61,7 @@ class Form extends Component {
     
 
 
-   /* componentDidMount = () => {
+    componentDidMount = () => {
         const { id } = this.props.match.params
         if (id) {
             this.props.getById(id).then(data => {
@@ -76,7 +76,7 @@ class Form extends Component {
                 });
             });
         }
-    }*/
+    }
 
     handleChange = (event) => {
         //this.setState({ value: event.target.value });

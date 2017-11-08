@@ -50,8 +50,8 @@ class List extends Component {
                             R
                           </Avatar>
                     }
-                    title="alquileres List"
-                    subheader="alquileres list"
+                    title="alquileres de List"
+                    subheader="Lista de Alquileres"
                 
                 />    
                 <CardContent>

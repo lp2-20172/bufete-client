@@ -101,7 +101,7 @@ class Form extends Component {
 
     render() {
         
-        let {categoria_list} = this.props
+        
 
         return (
             <Card>
@@ -136,13 +136,8 @@ class Form extends Component {
                         </label>
                        <label>
                             oficina:
-                            <input 
-                            componentClass="select" placeholder="Seleccione un oficina" value={this.state.oficina} name="categoria"  onChange={this.handleChange} />
-                        
-                         {categoria_list.map((d, index) =>
-                                                    <option key={index}
-                                                            value={d.id}>{d.nombre}</option>
-                                                )} 
+                            <input type="text" name="oficina" value={this.state.oficina} onChange={this.handleChange} /> 
+                            
                         </label>
                         <input type="submit" value="Submit" />
                     </form>
@@ -154,19 +149,19 @@ class Form extends Component {
 
 Form.propTypes = {
     data: PropTypes.object,
-    categoria_list: PropTypes.array
+    
 }
 
 const mapStateToProps = (state, props) => {
     if (props.match.params.id) {
         return {
-            data: state.oficina.list.find(item => item.id + '' === props.match.params.id + ''),
-            categoria_list: state.categoria.list,
+            data: state.alquiler.list.find(item => item.id + '' === props.match.params.id + ''),
+            
         }
     }
     return {
         data: null,
-        categoria_list: state.categoria.list,
+        
     }
 
 }

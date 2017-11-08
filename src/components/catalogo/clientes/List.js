@@ -90,7 +90,7 @@ class List extends Component {
                                 {list.map((d, index) =>
                                     <TableRow key={index}>
                                         <TableCell numeric>{index + 1}</TableCell>
-                                        <TableCell >{d.cliente}</TableCell>
+                                        <TableCell >{d.cliente }</TableCell>
                                         <TableCell >{d.ruc}</TableCell>
                         
                                         <TableCell >
@@ -116,7 +116,7 @@ List.propTypes = {
 
 const mapStateToProps = (state) => {
     return {
-        list: state.oficina.list
+        list: state.cliente.list
     }
 }
 
