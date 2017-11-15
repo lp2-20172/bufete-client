@@ -80,6 +80,7 @@ class List extends Component {
                                     <TableCell>#</TableCell>
                                     <TableCell >NroDoc</TableCell>
                                     <TableCell >Total</TableCell>
+                                     <TableCell >fecha</TableCell>
                                     <TableCell >Alquiler</TableCell>
                                     
                                     <TableCell >Edit</TableCell>
@@ -93,6 +94,7 @@ class List extends Component {
                                         <TableCell numeric>{index + 1}</TableCell>
                                         <TableCell >{d.nro_doc}</TableCell>
                                         <TableCell >{d.total}</TableCell>
+                                        <TableCell >{d.fecha}</TableCell>
                                         <TableCell >{d.alquiler}</TableCell>
                                       
                                         <TableCell >

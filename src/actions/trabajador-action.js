@@ -10,16 +10,16 @@ export const TRABAJADOR_LIST_REQUEST = "TRABAJADOR_LIST_REQUEST"
 export const TRABAJADOR_LIST_SUCCESS = 'TRABAJADOR_LIST_SUCCESS'
 export const TRABAJADOR_LIST_FAILURE = 'TRABAJADOR_LIST_FAILURE'
 
-export const TrabajadorList = () => ({
+export const trabajadorList = () => ({
     type: TRABAJADOR_LIST_REQUEST,
 })
 
-export const TrabajadorListSuccess = (list) => ({
+export const trabajadorListSuccess = (list) => ({
     type: TRABAJADOR_LIST_SUCCESS,
     list
 })
 
-export const TrabajadorListFailure = error => ({
+export const trabajadorListFailure = error => ({
     type: TRABAJADOR_LIST_FAILURE,
     error
 })
@@ -37,18 +37,18 @@ export const getList = (q = '') => {
     }
     return (dispatch) => {
         client.get(url, params).then(r => {
-            dispatch(TrabajadorListSuccess(r.data))
+            dispatch(trabajadorListSuccess(r.data))
         }).catch(error => { //throw (error)
             //console.log('getList catch:' + JSON.stringify(error.response))
             if (error.response) {
-                dispatch(TrabajadorListFailure(error.response.data.detail))
+                dispatch(trabajadorListFailure(error.response.data.detail))
             } else if (error.request) {
                 console.log(error.request);
-                dispatch(TrabajadorListFailure(JSON.stringify('Error '+error.request)))
+                dispatch(trabajadorListFailure(JSON.stringify('Error '+error.request)))
             } else {
                 // Something happened in setting up the request that triggered an Error
                 console.log('Error', error.message);
-                dispatch(TrabajadorListFailure('Error '+error.message))
+                dispatch(trabajadorListFailure('Error '+error.message))
             }
             //console.log(error.config);
         })
@@ -64,7 +64,7 @@ export function save(data, history) {
                     "type": TRABAJADOR_ADD,
                     "data": r.data //no usado
                 })
-                history.push('/catalogo/Trabajadores/list')
+                history.push('/catalogo/trabajadores/list')
             })
             .catch((error) => {
                 console.log(error)
@@ -100,7 +100,7 @@ export function update(data, history) {
                     "type": TRABAJADOR_UPDATE,
                     "data": r.data //no usado
                 })
-                history.push('/catalogo/Trabajadores/list')
+                history.push('/catalogo/trabajadores/list')
             })
             .catch((error) => {
                 console.log(error)

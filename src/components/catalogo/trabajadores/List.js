@@ -47,7 +47,7 @@ class List extends Component {
                 <CardHeader
                     avatar={
                         <Avatar aria-label="Recipe" >
-                            R
+                            T
                           </Avatar>
                     }
                     title="trabajadores List"
@@ -80,6 +80,8 @@ class List extends Component {
                                     <TableCell>#</TableCell>
                                     <TableCell >Tipo Empleado</TableCell>
                                     <TableCell >Trabajador</TableCell>
+                                    <TableCell >Edit</TableCell>
+                                    <TableCell >Delete</TableCell>
                                     
                                 </TableRow>
                             </TableHead>

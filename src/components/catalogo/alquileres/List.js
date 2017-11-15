@@ -78,11 +78,12 @@ class List extends Component {
                             <TableHead>
                                 <TableRow>
                                     <TableCell>#</TableCell>
+                                    <TableCell >Cliente</TableCell>
+                                    <TableCell >Oficina</TableCell>
+                                    <TableCell >Trabajador</TableCell>
                                     <TableCell >Fecha Entrada</TableCell>
                                     <TableCell >Fecha Salida</TableCell>
-                                    <TableCell >Cliente</TableCell>
-                                    <TableCell >Trabajador</TableCell>
-                                    <TableCell >Oficina</TableCell>
+                                                                       
                                     <TableCell >Edit</TableCell>
                                     <TableCell >Delete</TableCell>
                                 </TableRow>
@@ -92,11 +93,14 @@ class List extends Component {
                                 {list.map((d, index) =>
                                     <TableRow key={index}>
                                         <TableCell numeric>{index + 1}</TableCell>
-                                        <TableCell >{d.fechaEntrada}</TableCell>
-                                        <TableCell >{d.fechaSalida}</TableCell>
                                         <TableCell >{d.cliente}</TableCell>
+                                        <TableCell >{d.oficina}</TableCell>
                                         <TableCell >{d.trabajador}</TableCell>
-                                        <TableCell >{d.oficina}</TableCell>-
+                                        <TableCell >{d.fechaIngreso}</TableCell>
+                                        <TableCell >{d.fechaSalida}</TableCell>
+                                        
+                                        
+                                        
                                         <TableCell >
                                             <Link to={`/catalogo/alquileres/edit/${d.id}`} className="ui basic button green">Edit</Link>
                                         </TableCell>

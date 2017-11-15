@@ -6,7 +6,7 @@ import { connect } from 'react-redux'
 import AppLayout from './app/AppLayout'
 
 import { MuiThemeProvider, createMuiTheme } from 'material-ui/styles'
-import { blue, pink } from 'material-ui/colors';
+import { red, blue } from 'material-ui/colors';
 import { BrowserRouter as Router } from 'react-router-dom'
 import { Route } from 'react-router-dom'
 import Login from './Login'
@@ -21,8 +21,8 @@ class App extends Component {
         const theme = createMuiTheme({
             palette: {
                 type: dark ? 'dark' : 'light',
-                primary: blue, // Purple and green play nicely together.
-                secondary: pink,
+                primary: red, // Purple and green play nicely together.
+                secondary: red,
             },
         })
 

@@ -34,7 +34,7 @@ const routese = [
 ////////////////////////////////////////////////////////////
 // then our route config
 const routes = [
-  {
+  {   
     path: '/home',
     title: 'Home',
     icon: 'home',
@@ -107,7 +107,7 @@ const routes = [
       {
         path: '/catalogo/tipoTrabajadores/new',
         exact: true,
-        title: 'Trabajador New!',
+        title: 'Tipo Empleado New!',
         icon: 'send',
         component: TipoTrabajadorForm,
         novisible: true
@@ -115,7 +115,7 @@ const routes = [
       {
         path: '/catalogo/tipoTrabajadores/edit/:id',
         exact: true,
-        title: 'Trabajador Edit!',
+        title: 'Tipo Empleado Edit!',
         icon: 'send',
         component: TipoTrabajadorForm,
         novisible: true
@@ -147,7 +147,7 @@ const routes = [
       {
         path: '/catalogo/alquileres/list',
         exact: true,
-        title: 'Alquiler',
+        title: 'Alquiler List',
         icon: 'send',
         component: AlquilerList
       },

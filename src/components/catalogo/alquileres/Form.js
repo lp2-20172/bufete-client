@@ -117,12 +117,7 @@ class Form extends Component {
                 />
                 <CardContent>
                     <form onSubmit={this.handleSubmit}>
-                        <label>
-                            fechaEntrada:
-                            <input type="date" name="fechaEntrada" value={this.state.fechaEntrada} onChange={this.handleChange} />
-                        </label>
                         
-
                         <label>
                             fechaSalida:
                             <input type="date" name="fechaSalida" value={this.state.fechaSalida} onChange={this.handleChange} />
