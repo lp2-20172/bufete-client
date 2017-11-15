@@ -55,7 +55,7 @@ const routes = [
         path: '/catalogo/categorias/list',
         exact: true,
         title: 'Categorias',
-        icon: 'send',
+        icon: 'copyrightmark',
         component: CategoriaList
       },
       {
@@ -78,7 +78,7 @@ const routes = [
         path: '/catalogo/oficinas/list',
         exact: true,
         title: 'Oficinas',
-        icon: 'send',
+        icon: 'book',
         component: OficinaList
       },
       {
@@ -101,7 +101,7 @@ const routes = [
         path: '/catalogo/tipoTrabajadores/list',
         exact: true,
         title: 'Tipo Empleado',
-        icon: 'send',
+        icon: 'lock',
         component: TipoTrabajadorList
       },
       {
@@ -124,7 +124,7 @@ const routes = [
         path: '/catalogo/trabajadores/list',
         exact: true,
         title: 'Trabajador',
-        icon: 'send',
+        icon: 'mail',
         component: TrabajadorList
       },
       {
@@ -147,8 +147,8 @@ const routes = [
       {
         path: '/catalogo/alquileres/list',
         exact: true,
-        title: 'Alquiler List',
-        icon: 'send',
+        title: 'Alquiler',
+        icon: 'drafts',
         component: AlquilerList
       },
       {
@@ -172,7 +172,7 @@ const routes = [
         path: '/catalogo/clientes/list',
         exact: true,
         title: 'Cliente',
-        icon: 'send',
+        icon: 'personadd ',
         component: ClienteList
       },
       {
@@ -196,7 +196,7 @@ const routes = [
         path: '/catalogo/detalleAlquileres/list',
         exact: true,
         title: 'DetalleAlquiler',
-        icon: 'send',
+        icon: 'settings',
         component: DetalleAlquilerList
       },
       {

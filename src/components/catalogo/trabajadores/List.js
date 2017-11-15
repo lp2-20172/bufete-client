@@ -6,6 +6,8 @@ import Typography from 'material-ui/Typography'
 import TextField from 'material-ui/TextField';
 import Table, { TableBody, TableCell, TableHead, TableRow } from 'material-ui/Table';
 import Paper from 'material-ui/Paper';
+import IconButton from 'material-ui/IconButton'
+import DeleteIcon from 'material-ui-icons/Delete';
 
 import { getList, del } from '../../../actions/trabajador-action'
 import { connect } from 'react-redux'
@@ -50,8 +52,8 @@ class List extends Component {
                             T
                           </Avatar>
                     }
-                    title="trabajadores List"
-                    subheader="trabajadores list"
+                    title="Lista de Trabajadores"
+                    subheader=""
                 
                 />    
                 <CardContent>
@@ -97,7 +99,9 @@ class List extends Component {
                                             <Link to={`/catalogo/trabajadores/edit/${d.id}`} className="ui basic button green">Edit</Link>
                                         </TableCell>
                                         <TableCell >
-                                            <Button onClick={() => del(d.id, this.props.history)} >Delete</Button>
+                                        <IconButton aria-label="Delete" onClick={() => del(d.id, this.props.history)}>
+                                                <DeleteIcon />
+                                            </IconButton>
                                         </TableCell>
                                     </TableRow>
                                 )}

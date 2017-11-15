@@ -2,11 +2,21 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import Card, { CardHeader, CardContent } from 'material-ui/Card'
 import Avatar from 'material-ui/Avatar'
+import Button from 'material-ui/Button';
+import Input, { InputLabel, InputAdornment } from 'material-ui/Input';
 //import Typography from 'material-ui/Typography'
 //import TextField from 'material-ui/TextField';
 
 import { save, getById, update } from '../../../actions/tipoTrabajador-action'
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
+
+const styles = theme => ({
+    button: {
+      margin: theme.spacing.unit,
+    },
+    
+  });
+
 
 class Form extends Component {
     /*
@@ -25,7 +35,7 @@ class Form extends Component {
         this.state = {
             id: props.data ? props.data.id : null,
             tipoEmpleado: props.data ? props.data.tipoEmpleado : ''
-               
+
         }
     }
     /*
@@ -68,8 +78,8 @@ class Form extends Component {
                 this.setState({
                     id: data.id,
                     tipoEmpleado: data.tipoEmpleado,
-                   
-                   
+
+
                 });
             });
         }
@@ -97,36 +107,60 @@ class Form extends Component {
         //this.props.history.push('/categorias/list');
         event.preventDefault();
     }
-
+    
     render() {
+        
         //const { data } = this.props
         return (
             <Card>
                 <CardHeader
                     avatar={
-                        <Avatar aria-label="Recipe" >
-                            R
+                        <Avatar src="http://www.josephandmeryschool.edu.pe/images/03-icono-empleados.png" >
+                            
                           </Avatar>
                     }
-                    title="User Form"
-                    subheader="Tipo Empleado Form"
+                    title="FORMULARIO"
+                    subheader=""
                 />
                 <CardContent>
-                    <form onSubmit={this.handleSubmit}>
-                        <label>
-                            Tipo Empleado:
-                            <input type="text" name="tipoEmpleado" value={this.state.tipoEmpleado} onChange={this.handleChange} />
-                        </label>
-                        
-                       
-                       
-                        <input type="submit" value="Submit" />
+                    <form >
+
+                        <InputLabel >Tipo Empleado</InputLabel>
+                        <Input
+
+                            typy="text"
+                            name="tipoEmpleado"
+                            value={this.state.tipoEmpleado}
+                            onChange={this.handleChange}
+                            startAdornment={<InputAdornment position="start"> : </InputAdornment>}
+                        />
+
+
                     </form>
+
+
+                </CardContent>
+                <CardContent>
+                    <form onSubmit={this.handleSubmit}>
+                        <Button
+                            raised
+                            color="primary"
+                            type="submit"
+                            margin="normal"
+                        >
+                            Guardar
+                        </Button>
+                        
+                     </form>
+
+
                 </CardContent>
             </Card>
         )
     }
 }
+
+
 
 Form.propTypes = {
     data: PropTypes.object

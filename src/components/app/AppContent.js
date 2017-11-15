@@ -85,7 +85,7 @@ class About extends React.Component {
 
 
 
-export {Content, Home, Tacos, Bus, Cart, About, Sandwiches}
+export {Content, Home, }
 
 
 /*

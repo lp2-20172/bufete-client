@@ -6,6 +6,8 @@ import Typography from 'material-ui/Typography'
 import TextField from 'material-ui/TextField';
 import Table, { TableBody, TableCell, TableHead, TableRow } from 'material-ui/Table';
 import Paper from 'material-ui/Paper';
+import IconButton from 'material-ui/IconButton'
+import DeleteIcon from 'material-ui-icons/Delete';
 
 import { getList, del } from '../../../actions/tipoTrabajador-action'
 import { connect } from 'react-redux'
@@ -35,9 +37,9 @@ class List extends Component {
     render() {
         let { list, del } = this.props
         if (list) {
-            
-        } else{
-            list =[]
+
+        } else {
+            list = []
 
         }
 
@@ -46,14 +48,14 @@ class List extends Component {
             <Card>
                 <CardHeader
                     avatar={
-                        <Avatar aria-label="Recipe" >
-                            R
+                        <Avatar src="http://www.josephandmeryschool.edu.pe/images/03-icono-empleados.png" >
+                            
                           </Avatar>
                     }
-                    title="Tipo Empleado List"
-                    subheader="Tipo Empleado list"
-                
-                />    
+                    title="Lista de Tipo de Empleados"
+                    subheader=""
+
+                />
                 <CardContent>
                     <Typography component="p">
                         q={this.props.q}
@@ -65,8 +67,8 @@ class List extends Component {
                         value={this.props.q}
                         onChange={this.change}
                         margin="normal"
-                    
-                        />
+
+                    />
                     <Button fab color="primary" aria-label="add" onClick={this.handleClick}>
                         <AddIcon />
                     </Button>
@@ -89,12 +91,14 @@ class List extends Component {
                                     <TableRow key={index}>
                                         <TableCell numeric>{index + 1}</TableCell>
                                         <TableCell >{d.tipoEmpleado}</TableCell>
-                                        
+
                                         <TableCell >
-                                            <Link to={`/catalogo/tipoTrabajadores/edit/${d.id}`} className="ui basic button green">Edit</Link>
+                                            <Link to={`/catalogo/tipoTrabajadores/edit/${d.id}`} className="">Edit</Link>
                                         </TableCell>
                                         <TableCell >
-                                            <Button onClick={() => del(d.id, this.props.history)} >Delete</Button>
+                                            <IconButton aria-label="Delete" onClick={() => del(d.id, this.props.history)}>
+                                                <DeleteIcon />
+                                            </IconButton>
                                         </TableCell>
                                     </TableRow>
                                 )}

@@ -21,7 +21,7 @@ class App extends Component {
         const theme = createMuiTheme({
             palette: {
                 type: dark ? 'dark' : 'light',
-                primary: red, // Purple and green play nicely together.
+                primary: blue, // Purple and green play nicely together.
                 secondary: red,
             },
         })
