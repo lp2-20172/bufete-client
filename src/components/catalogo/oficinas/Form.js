@@ -2,11 +2,14 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import Card, { CardHeader, CardContent } from 'material-ui/Card'
 import Avatar from 'material-ui/Avatar'
+import Input, { InputLabel, InputAdornment } from 'material-ui/Input';
 //import Typography from 'material-ui/Typography'
-//import TextField from 'material-ui/TextField';
+import TextField from 'material-ui/TextField';
+import Button from 'material-ui/Button';
 
 import { save, getById, update } from '../../../actions/oficina-action'
-import { getList , categoriaList } from '../../../actions/categoria-action'
+import { getList as getCategoriaList } from '../../../actions/categoria-action'
+
 import { connect } from 'react-redux'
 
 class Form extends Component {
@@ -29,13 +32,13 @@ class Form extends Component {
             estado: props.data ? props.data.estado : '',
             descripcion: props.data ? props.data.descripcion : '',
             precio: props.data ? props.data.precio : '',
-            categoria: props.data ? props.data.categoria : ''     
+            categoria: props.data ? props.data.categoria : ''
         }
     }
+
+    componentWillMount = () => {
+        this.props.getCategoriaList("")
     
-     componentWillMount = () => {
-        this.props.categoriaList("")
-    }
     /*componentWillMount = () => {
 
         this.props.getCategoriaList("")
@@ -58,7 +61,7 @@ class Form extends Component {
             });
         }
         */
-    
+    }
 
 
     componentDidMount = () => {
@@ -72,7 +75,7 @@ class Form extends Component {
                     descripcion: data.descripcion,
                     precio: data.precio,
                     categoria: data.categoria,
-                   
+
                 });
             });
         }
@@ -102,8 +105,8 @@ class Form extends Component {
     }
 
     render() {
-        
-        let {categoria_list} = this.props
+
+        let { categoria_list } = this.props
 
         return (
             <Card>
@@ -117,37 +120,126 @@ class Form extends Component {
                     subheader="Oficina Form"
                 />
                 <CardContent>
-                    <form onSubmit={this.handleSubmit}>
-                        <label>
-                            Codigo:
-                            <input type="text" name="codigo" value={this.state.codigo} onChange={this.handleChange} />
-                        </label>
-                        
+                    <form >
+                        <InputLabel >Codigo</InputLabel>
+                        <Input
 
-                        <label>
-                            estado:
-                            <input type="text" name="estado" value={this.state.estado} onChange={this.handleChange} />
-                        </label>
-                        <label>
-                            descripcion:
-                            <input type="text" name="descripcion" value={this.state.descripcion} onChange={this.handleChange} />
-                        </label>
-                        <label>
-                            precio:
-                            <input type="text" name="precio" value={this.state.precio} onChange={this.handleChange} />
-                        </label>
-                       <label>
-                            categoria:
-                            <input 
-                            componentClass="select" placeholder="Seleccione un categoria" value={this.state.categoria} name="categoria"  onChange={this.handleChange} />
-                        
-                         {categoria_list.map((d, index) =>
-                                                    <option key={index}
-                                                            value={d.id}>{d.nombre}</option>
-                                                )} 
-                        </label>
-                        <input type="submit" value="Submit" />
+                            type="text"
+                            name="codigo"
+
+                            value={this.state.codigo}
+                            onChange={this.handleChange}
+                            startAdornment={<InputAdornment position="start"> : </InputAdornment>}
+                        />
+
                     </form>
+                    
+                    <form >
+                        <InputLabel >Estado</InputLabel>
+                        <Input
+
+                            type="text"
+                            name="estado"
+
+                            value={this.state.estado}
+                            onChange={this.handleChange}
+                            startAdornment={<InputAdornment position="start"> : </InputAdornment>}
+                        />
+
+
+                    </form>
+                    
+                    <form >
+                        <InputLabel >Descripcion</InputLabel>
+                        <Input
+
+                            type="text"
+                            name="descripcion"
+
+                            value={this.state.descripcion}
+                            onChange={this.handleChange}
+                            startAdornment={<InputAdornment position="start"> : </InputAdornment>}
+                        />
+                    </form>
+
+                    <form >
+                        <InputLabel >Precio</InputLabel>
+                        <Input
+
+                            type="text"
+                            name="precio"
+
+                            value={this.state.precio}
+                            onChange={this.handleChange}
+                            startAdornment={<InputAdornment position="start"> : </InputAdornment>}
+                        />
+                    </form>
+
+
+                    <form >
+                        <InputLabel >Categoria :</InputLabel>
+                        
+                        <TextField
+
+                            id="select-currency-native"
+                            select
+
+                            name="categoria"
+                            value={this.state.categoria}
+                            onChange={this.handleChange}
+
+                            helperText="Seleccione una categoria"
+                            margin="normal"
+                            SelectProps={{
+                                shrink: true,
+                                native: true,
+                                MenuProps: {
+                                    name: "categoria"
+                                },
+                            }}
+
+                        >
+                            {categoria_list.map((d, index) =>
+                                <option key={index} value={d.id}>
+                                    {d.nombre}
+                                </option>
+                            )}
+                        </TextField>
+
+
+
+
+
+                    </form>
+
+                    
+
+                </CardContent>
+                 <CardContent>
+                    <form onSubmit={this.handleSubmit}>
+                        <Button
+                            raised
+                            color="primary"
+                            type="submit"
+                            margin="normal"
+                        >
+                            Guardar
+                        </Button>
+                        {'  '}
+                        <Button
+                            raised
+                            color="accent"
+                            type="reset"
+                            
+                            margin="normal"
+                            onClick={(e) => this.props.history.push('/catalogo/oficinas/list')}>
+                        
+                            cancelar
+                        </Button>
+                        
+                     </form>
+
+
                 </CardContent>
             </Card>
         )
@@ -186,6 +278,6 @@ export default connect(mapStateToProps, {
     save,
     getById,
     update,
-    categoriaList,
+    getCategoriaList,
 
 })(Form)
