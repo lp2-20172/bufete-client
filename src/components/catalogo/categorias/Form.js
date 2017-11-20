@@ -5,6 +5,7 @@ import Avatar from 'material-ui/Avatar'
 //import Typography from 'material-ui/Typography'
 //import TextField from 'material-ui/TextField';
 
+import { getList as getCategoriaList } from '../../../actions/categoria-action'
 import { save, getById, update } from '../../../actions/categoria-action'
 import { connect } from 'react-redux'
 
@@ -103,8 +104,8 @@ class Form extends Component {
             <Card>
                 <CardHeader
                     avatar={
-                        <Avatar aria-label="Recipe" >
-                            R
+                        <Avatar src = "https://icon-icons.com/icons2/1147/PNG/512/1486486297-attribute-category-label-shop-price-price-tag-tag_81213.png" >
+                            
                           </Avatar>
                     }
                     title="User Form"

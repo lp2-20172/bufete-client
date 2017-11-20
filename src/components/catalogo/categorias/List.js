@@ -7,6 +7,10 @@ import TextField from 'material-ui/TextField';
 import Table, { TableBody, TableCell, TableHead, TableRow } from 'material-ui/Table';
 import Paper from 'material-ui/Paper';
 
+import DeleteIcon from 'material-ui-icons/Delete';
+import EditIcon from 'material-ui-icons/Edit';
+import IconButton from 'material-ui/IconButton'
+
 import { getList, del } from '../../../actions/categoria-action'
 import { connect } from 'react-redux'
 
@@ -92,10 +96,13 @@ class List extends Component {
                                         <TableCell >{d.nombre}</TableCell>
                                         <TableCell >{d.codigo}</TableCell>
                                         <TableCell >
-                                            <Link to={`/catalogo/categorias/edit/${d.id}`} className="ui basic button green">Edit</Link>
+                                            <Link to={`/catalogo/categoria/edit/${d.id}`}  ><EditIcon color="blue" /></Link>
+                                          
                                         </TableCell>
-                                        <TableCell >
-                                            <Button onClick={() => del(d.id, this.props.history)} >Delete</Button>
+                                         <TableCell >
+                                            <IconButton aria-label="Delete" onClick={() => del(d.id, this.props.history)}>
+                                                <DeleteIcon color = "red"/>
+                                            </IconButton>
                                         </TableCell>
                                     </TableRow>
                                 )}

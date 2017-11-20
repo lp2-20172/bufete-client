@@ -112,8 +112,8 @@ class Form extends Component {
             <Card>
                 <CardHeader
                     avatar={
-                        <Avatar aria-label="Recipe" >
-                            R
+                        <Avatar  >
+                            r
                           </Avatar>
                     }
                     title="User Form"
