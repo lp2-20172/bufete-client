@@ -107,7 +107,7 @@ const routes = [
       {
         path: '/catalogo/tipoTrabajadores/new',
         exact: true,
-        title: 'Tipo Empleado New!',
+        title: 'Agregar Tipo de Empleados',
         icon: 'send',
         component: TipoTrabajadorForm,
         novisible: true

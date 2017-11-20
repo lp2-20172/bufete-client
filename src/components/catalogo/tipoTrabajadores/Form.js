@@ -34,7 +34,7 @@ class Form extends Component {
         super(props);
         this.state = {
             id: props.data ? props.data.id : null,
-            tipoEmpleado: props.data ? props.data.tipoEmpleado : ''
+            nombre: props.data ? props.data.nombre : ''
 
         }
     }
@@ -77,7 +77,7 @@ class Form extends Component {
             this.props.getById(id).then(data => {
                 this.setState({
                     id: data.id,
-                    tipoEmpleado: data.tipoEmpleado,
+                    nombre: data.nombre,
 
 
                 });
@@ -125,12 +125,13 @@ class Form extends Component {
                 <CardContent>
                     <form >
 
-                        <InputLabel >Tipo Empleado</InputLabel>
+                        <InputLabel >Nombre</InputLabel>
                         <Input
 
-                            typy="text"
-                            name="tipoEmpleado"
-                            value={this.state.tipoEmpleado}
+                            type="text"
+                            name="nombre"
+                            
+                            value={this.state.nombre}
                             onChange={this.handleChange}
                             startAdornment={<InputAdornment position="start"> : </InputAdornment>}
                         />
@@ -149,6 +150,17 @@ class Form extends Component {
                             margin="normal"
                         >
                             Guardar
+                        </Button>
+                        {'  '}
+                        <Button
+                            raised
+                            color="accent"
+                            type="reset"
+                            
+                            margin="normal"
+                            onClick={(e) => this.props.history.push('/catalogo/tipoTrabajadores/list')}>
+                        
+                            cancelar
                         </Button>
                         
                      </form>

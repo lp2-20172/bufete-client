@@ -2,10 +2,13 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import Card, { CardHeader, CardContent } from 'material-ui/Card'
 import Avatar from 'material-ui/Avatar'
-//import Typography from 'material-ui/Typography'
-//import TextField from 'material-ui/TextField';
+import Typography from 'material-ui/Typography'
+import Input, { InputLabel, InputAdornment } from 'material-ui/Input';
+import TextField from 'material-ui/TextField';
+import Button from 'material-ui/Button';
 
 import { save, getById, update } from '../../../actions/trabajador-action'
+import { getList as getTipoTrabajadorList } from '../../../actions/tipoTrabajador-action'
 import { connect } from 'react-redux'
 
 class Form extends Component {
@@ -26,7 +29,7 @@ class Form extends Component {
             id: props.data ? props.data.id : null,
             tipoEmpleado: props.data ? props.data.tipoEmpleado : '',
             trabajador: props.data ? props.data.trabajador : '',
-               
+
         }
     }
     /*
@@ -41,6 +44,7 @@ class Form extends Component {
         }
     */
     componentWillMount = () => {
+        this.props.getTipoTrabajadorList("")
         /*
         const { id } = this.props.match.params
         if (id) {
@@ -70,8 +74,8 @@ class Form extends Component {
                     id: data.id,
                     tipoEmpleado: data.tipoEmpleado,
                     trabajador: data.trabajador,
-                    
-                   
+
+
                 });
             });
         }
@@ -101,6 +105,7 @@ class Form extends Component {
     }
 
     render() {
+        let { tipoTrabajador_list } = this.props
         //const { data } = this.props
         return (
             <Card>
@@ -110,24 +115,110 @@ class Form extends Component {
                             R
                           </Avatar>
                     }
-                    title="Empleado Form"
-                    subheader="Empleado Form"
+                    title="Formulario"
+                    subheader=""
                 />
                 <CardContent>
                     <form onSubmit={this.handleSubmit}>
-                        <label>
-                            Tipo Empleado:
-                            <input type="text" name="tipoEmpleado" value={this.state.tipoEmpleado} onChange={this.handleChange} />
-                        </label>
-                        
+                        <InputLabel >Tipo Empleado :</InputLabel>
+                        {'  '}
+                        <TextField
+
+                            id="select-currency-native"
+                            select
+
+                            name="tipoEmpleado"
+                            value={this.state.tipoEmpleado}
+                            onChange={this.handleChange}
+
+                            helperText="Seleccione un Tipo Empleado"
+                            margin="normal"
+                            SelectProps={{
+                                native: true,
+                                MenuProps: {
+                                    name: "tipoEmpleado"
+                                },
+                            }}
+
+                        >
+                            {tipoTrabajador_list.map((d, index) =>
+                                <option key={index} value={d.id}>
+                                    {d.nombre}
+                                </option>
+                            )}
+                        </TextField>
 
                         <label>
                             Trabajador:
                             <input type="text" name="trabajador" value={this.state.trabajador} onChange={this.handleChange} />
                         </label>
+
+
                         
-                        <input type="submit" value="Submit" />
                     </form>
+                    <form onSubmit={this.handleSubmit}>
+                        <InputLabel >Trabajador :</InputLabel>
+                        {'  '}
+                        <TextField
+
+                            id="select-currency-native"
+                            select
+
+                            name="tipoEmpleado"
+                            value={this.state.tipoEmpleado}
+                            onChange={this.handleChange}
+
+                            helperText="Seleccione un Trabajador"
+                            margin="normal"
+                            SelectProps={{
+                                shrink: true,
+                                native: true,
+                                MenuProps: {
+                                    name: "tipoEmpleado"
+                                },
+                            }}
+
+                        >
+                            {tipoTrabajador_list.map((d, index) =>
+                                <option key={index} value={d.id}>
+                                    {d.nombre}
+                                </option>
+                            )}
+                        </TextField>
+
+                       
+
+
+                        
+                    </form>
+
+                </CardContent>
+                
+                <CardContent>
+                    <form onSubmit={this.handleSubmit}>
+                        <Button
+                            raised
+                            color="primary"
+                            type="submit"
+                            margin="normal"
+                        >
+                            Guardar
+                        </Button>
+                        {'  '}
+                        <Button
+                            raised
+                            color="accent"
+                            type="reset"
+                            
+                            margin="normal"
+                            onClick={(e) => this.props.history.push('/catalogo/trabajadores/list')}>
+                        
+                            cancelar
+                        </Button>
+                        
+                     </form>
+
+
                 </CardContent>
             </Card>
         )
@@ -135,17 +226,20 @@ class Form extends Component {
 }
 
 Form.propTypes = {
-    data: PropTypes.object
+    data: PropTypes.object,
+    tipoTrabajador_list: PropTypes.array
 }
 
 const mapStateToProps = (state, props) => {
     if (props.match.params.id) {
         return {
-            data: state.trabajador.list.find(item => item.id + '' === props.match.params.id + '')
+            data: state.trabajador.list.find(item => item.id + '' === props.match.params.id + ''),
+            tipoTrabajador_list: state.tipoTrabajador.list
         }
     }
     return {
-        data: null
+        data: null,
+        tipoTrabajador_list: state.tipoTrabajador.list
     }
 
 }
@@ -162,6 +256,8 @@ const mapDispatchToProps = (dispatch) => {
 export default connect(mapStateToProps, {
     save,
     getById,
-    update
+    update,
+    getTipoTrabajadorList,
+
 
 })(Form)

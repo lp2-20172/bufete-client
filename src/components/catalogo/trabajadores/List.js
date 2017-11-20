@@ -8,8 +8,10 @@ import Table, { TableBody, TableCell, TableHead, TableRow } from 'material-ui/Ta
 import Paper from 'material-ui/Paper';
 import IconButton from 'material-ui/IconButton'
 import DeleteIcon from 'material-ui-icons/Delete';
+import EditIcon from 'material-ui-icons/Edit';
 
 import { getList, del } from '../../../actions/trabajador-action'
+
 import { connect } from 'react-redux'
 
 import Button from 'material-ui/Button';
@@ -92,15 +94,15 @@ class List extends Component {
                                 {list.map((d, index) =>
                                     <TableRow key={index}>
                                         <TableCell numeric>{index + 1}</TableCell>
-                                        <TableCell >{d.tipoEmpleado}</TableCell>
-                                        <TableCell >{d.trabajador}</TableCell>
+                                        <TableCell >{d.tipoEmpleado_tipoEmpleado }</TableCell>
+                                        <TableCell >{d.trabajador_username}</TableCell>
                                        
                                         <TableCell >
-                                            <Link to={`/catalogo/trabajadores/edit/${d.id}`} className="ui basic button green">Edit</Link>
+                                            <Link to={`/catalogo/trabajadores/edit/${d.id}`} className="ui basic button green"><EditIcon color="blue" /></Link>
                                         </TableCell>
                                         <TableCell >
                                         <IconButton aria-label="Delete" onClick={() => del(d.id, this.props.history)}>
-                                                <DeleteIcon />
+                                                <DeleteIcon color="red" />
                                             </IconButton>
                                         </TableCell>
                                     </TableRow>

@@ -8,6 +8,7 @@ import Table, { TableBody, TableCell, TableHead, TableRow } from 'material-ui/Ta
 import Paper from 'material-ui/Paper';
 import IconButton from 'material-ui/IconButton'
 import DeleteIcon from 'material-ui-icons/Delete';
+import EditIcon from 'material-ui-icons/Edit';
 
 import { getList, del } from '../../../actions/tipoTrabajador-action'
 import { connect } from 'react-redux'
@@ -52,7 +53,7 @@ class List extends Component {
                             
                           </Avatar>
                     }
-                    title="Lista de Tipo de Empleados"
+                    title="Tipo de Empleados"
                     subheader=""
 
                 />
@@ -63,7 +64,7 @@ class List extends Component {
 
                     <TextField
                         id="search"
-                        label="Search"
+                        label="Buscar"
                         value={this.props.q}
                         onChange={this.change}
                         margin="normal"
@@ -90,14 +91,14 @@ class List extends Component {
                                 {list.map((d, index) =>
                                     <TableRow key={index}>
                                         <TableCell numeric>{index + 1}</TableCell>
-                                        <TableCell >{d.tipoEmpleado}</TableCell>
+                                        <TableCell >{d.nombre}</TableCell>
 
                                         <TableCell >
-                                            <Link to={`/catalogo/tipoTrabajadores/edit/${d.id}`} className="">Edit</Link>
+                                            <Link to={`/catalogo/tipoTrabajadores/edit/${d.id}`}  ><EditIcon color="blue" /></Link>
                                         </TableCell>
                                         <TableCell >
                                             <IconButton aria-label="Delete" onClick={() => del(d.id, this.props.history)}>
-                                                <DeleteIcon />
+                                                <DeleteIcon color = "red"/>
                                             </IconButton>
                                         </TableCell>
                                     </TableRow>

@@ -6,7 +6,7 @@ export const toggleTheme = () => ({
 })
 
 const client = axios.create({
-    baseURL: "https://juridicoss.herokuapp.com/",
+    baseURL: "http://localhost:8003/",
 
 
 })
