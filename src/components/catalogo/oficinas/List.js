@@ -6,6 +6,7 @@ import Typography from 'material-ui/Typography'
 import TextField from 'material-ui/TextField';
 import Table, { TableBody, TableCell, TableHead, TableRow } from 'material-ui/Table';
 import Paper from 'material-ui/Paper';
+import IconButton from 'material-ui/IconButton'
 
 import DeleteIcon from 'material-ui-icons/Delete';
 import EditIcon from 'material-ui-icons/Edit';
@@ -101,11 +102,13 @@ class List extends Component {
                                         <TableCell >{d.precio}</TableCell>
                                         <TableCell >{d.categoria_nombre}</TableCell>
                                         <TableCell >
-                                            <Link to={`/catalogo/oficinas/edit/${d.id}`} className="ui basic button green">Edit</Link>
+                                         
                                             <Link to={`/catalogo/oficinas/edit/${d.id}`}  ><EditIcon color="blue" /></Link>
                                         </TableCell>
-                                        <TableCell >
-                                            <Button onClick={() => del(d.id, this.props.history)} >Delete</Button>
+                                       <TableCell >
+                                            <IconButton aria-label="Delete" onClick={() => del(d.id, this.props.history)}>
+                                                <DeleteIcon color = "red"/>
+                                            </IconButton>
                                         </TableCell>
                                     </TableRow>
                                 )}
