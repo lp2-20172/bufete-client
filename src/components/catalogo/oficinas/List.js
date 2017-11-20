@@ -99,7 +99,7 @@ class List extends Component {
                                         <TableCell >{d.codigo}</TableCell>
                                         <TableCell >{d.estado}</TableCell>
                                         <TableCell >{d.descripcion}</TableCell>
-                                        <TableCell >{d.precio}</TableCell>
+                                        <TableCell >S/.{d.precio}</TableCell>
                                         <TableCell >{d.categoria_nombre}</TableCell>
                                         <TableCell >
                                          
