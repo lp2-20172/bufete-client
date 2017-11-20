@@ -96,7 +96,7 @@ class List extends Component {
                                         <TableCell >{d.nombre}</TableCell>
                                         <TableCell >{d.codigo}</TableCell>
                                         <TableCell >
-                                            <Link to={`/catalogo/categoria/edit/${d.id}`}  ><EditIcon color="blue" /></Link>
+                                            <Link to={`/catalogo/categorias/edit/${d.id}`}  ><EditIcon color="blue" /></Link>
                                           
                                         </TableCell>
                                          <TableCell >

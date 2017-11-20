@@ -2,6 +2,9 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import Card, { CardHeader, CardContent } from 'material-ui/Card'
 import Avatar from 'material-ui/Avatar'
+
+import Button from 'material-ui/Button';
+import Input, { InputLabel, InputAdornment } from 'material-ui/Input';
 //import Typography from 'material-ui/Typography'
 //import TextField from 'material-ui/TextField';
 
@@ -112,19 +115,64 @@ class Form extends Component {
                     subheader="Users Form"
                 />
                 <CardContent>
-                    <form onSubmit={this.handleSubmit}>
-                        <label>
-                            Codigo:
-                            <input type="text" name="codigo" value={this.state.codigo} onChange={this.handleChange} />
-                        </label>
-                        <br />
+                    <form >
+                        <InputLabel >Codigo</InputLabel>
+                        <Input
 
-                        <label>
-                            Name:
-                            <input type="text" name="nombre" value={this.state.nombre} onChange={this.handleChange} />
-                        </label>
-                        <input type="submit" value="Guardar" />
+                            type="text"
+                            name="codigo"
+
+                            value={this.state.codigo}
+                            onChange={this.handleChange}
+                            startAdornment={<InputAdornment position="start"> : </InputAdornment>}
+                        />
+
                     </form>
+
+                    <form >
+                        <InputLabel >Nombre</InputLabel>
+                        <Input
+
+                            type="text"
+                            name="nombre"
+
+                            value={this.state.nombre}
+                            onChange={this.handleChange}
+                            startAdornment={<InputAdornment position="start"> : </InputAdornment>}
+                        />
+
+                    </form>
+                    
+                    
+
+                       
+                    
+                </CardContent>
+                  <CardContent>
+                    <form onSubmit={this.handleSubmit}>
+                        <Button
+                            raised
+                            color="primary"
+                            type="submit"
+                            margin="normal"
+                        >
+                            Guardar
+                        </Button>
+                        {'  '}
+                        <Button
+                            raised
+                            color="accent"
+                            type="reset"
+                            
+                            margin="normal"
+                            onClick={(e) => this.props.history.push('/catalogo/categorias/list')}>
+                        
+                            cancelar
+                        </Button>
+                        
+                     </form>
+
+
                 </CardContent>
             </Card>
         )
