@@ -4,6 +4,9 @@ import { withStyles } from 'material-ui/styles'
 import classNames from 'classnames';
 import withWidth, { isWidthUp } from 'material-ui/utils/withWidth'
 import compose from 'recompose/compose'
+import Badge from 'material-ui/Badge';
+import MailIcon from 'material-ui-icons/Mail';
+import Button from 'material-ui/Button';
 
 import {
   Link
@@ -281,9 +284,12 @@ class RouteConfigExample extends React.Component {
 
 
     return (
+      
       <div className={classes.root}>
         <div className={classes.appFrame}>
-
+ <Badge className={classes.badge} badgeContent={4} color="primary">
+        <MailIcon />
+      </Badge>
           <AppBar className={classNames(classes.appBar, ((this.state.open) && drawerDocked) && classes.appBarShift)}>
             <Toolbar disableGutters={!this.state.open}>
               <IconButton
@@ -297,7 +303,7 @@ class RouteConfigExample extends React.Component {
 
               <title>
                 {title.parent ? title.parent + (title.children ? ' > ' : '') + title.children : title.children}
-                - EComm Sys
+                - Bufete Sys
               </title>
 
               <Typography type="title" color="inherit" noWrap >
@@ -306,7 +312,9 @@ class RouteConfigExample extends React.Component {
 
 
               <div className={classes.grow} />
-
+<Badge className={classes.badge} badgeContent={4} color="primary">
+        <MailIcon />
+      </Badge>
               <IconButton
                 title="Toggle light/dark theme"
                 color="contrast"
@@ -324,8 +332,12 @@ class RouteConfigExample extends React.Component {
               </IconButton>
               {this.state.username}
 
-              <button onClick={isLoggedIn ? this.lLogout : this.lLogin} >{isLoggedIn ? 'logout' : 'Login'}</button>
 
+            
+
+   <Button raised color="primary" onClick={isLoggedIn ? this.lLogout : this.lLogin} >
+        Loggin
+      </Button>
 
             </Toolbar>
           </AppBar>
