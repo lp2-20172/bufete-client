@@ -166,12 +166,12 @@ class Form extends Component {
                         <InputLabel >Precio</InputLabel>
                         <Input
 
-                            type="text"
+                            type="number"
                             name="precio"
 
                             value={this.state.precio}
                             onChange={this.handleChange}
-                            startAdornment={<InputAdornment position="start"> : </InputAdornment>}
+                            startAdornment={<InputAdornment position="start"> : S/.</InputAdornment>}
                         />
                     </form>
 
