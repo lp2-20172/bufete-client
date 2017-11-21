@@ -158,7 +158,7 @@ class Form extends Component {
                     </form>
                     <form onSubmit={this.handleSubmit}>
                         <InputLabel >Trabajador :</InputLabel>
-                        {'  '}
+                        
                         <TextField
 
                             id="select-currency-native"
