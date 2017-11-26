@@ -203,8 +203,9 @@ class Form extends Component {
 
 
                     </form>
-                    
+                    <InputLabel>5.  Estado :</InputLabel>
                     <FormGroup row>
+                        
                     <FormControlLabel
                     control={
                       <Checkbox
@@ -215,10 +216,14 @@ class Form extends Component {
                         
                       </Checkbox>
                     }
+                     
+                    label = {this.state.estado ? "Activo" : "Inactivo"}
                     
-                    label=  {this.state.estado ? "Activo" : "Inactivo"}
                   />
+                  
+                  
                   </FormGroup>
+                  
                     
                     
                     

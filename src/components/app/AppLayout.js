@@ -335,7 +335,7 @@ class RouteConfigExample extends React.Component {
 
             
 
-   <Button raised color="primary" onClick={isLoggedIn ? this.lLogout : this.lLogin} >
+   <Button raised color="contrast" onClick={isLoggedIn ? this.lLogout : this.lLogin} >
         Loggin
       </Button>
 

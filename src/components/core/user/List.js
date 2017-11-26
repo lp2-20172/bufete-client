@@ -78,7 +78,7 @@ class List extends Component {
                             <TableHead>
                                 <TableRow>
                                     <TableCell>#</TableCell>
-                                    <TableCell >User_Name</TableCell>
+                                    <TableCell >User Name</TableCell>
                                     <TableCell >Email</TableCell>
                                     <TableCell >Estado</TableCell>
                                     <TableCell >Edit</TableCell>

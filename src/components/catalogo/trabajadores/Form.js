@@ -9,6 +9,7 @@ import Button from 'material-ui/Button';
 
 import { save, getById, update } from '../../../actions/trabajador-action'
 import { getList as getTipoTrabajadorList } from '../../../actions/tipoTrabajador-action'
+import { getList as getUserList } from '../../../actions/user-action'
 import { connect } from 'react-redux'
 
 class Form extends Component {
@@ -44,7 +45,8 @@ class Form extends Component {
         }
     */
     componentWillMount = () => {
-        this.props.getTipoTrabajadorList("")
+        this.props.getTipoTrabajadorList(""),
+        this.props.getUserList("")
         /*
         const { id } = this.props.match.params
         if (id) {
@@ -105,8 +107,9 @@ class Form extends Component {
     }
 
     render() {
-        let { tipoTrabajador_list } = this.props
-        //const { data } = this.props
+        let { tipoTrabajador_list, user_list } = this.props
+        
+        //const { datador } = this.props
         return (
             <Card>
                 <CardHeader
@@ -148,10 +151,7 @@ class Form extends Component {
                             )}
                         </TextField>
 
-                        <label>
-                            Trabajador:
-                            <input type="text" name="trabajador" value={this.state.trabajador} onChange={this.handleChange} />
-                        </label>
+                       
 
 
                         
@@ -164,8 +164,8 @@ class Form extends Component {
                             id="select-currency-native"
                             select
 
-                            name="tipoEmpleado"
-                            value={this.state.tipoEmpleado}
+                            name="trabajador"
+                            value={this.state.trabajador}
                             onChange={this.handleChange}
 
                             helperText="Seleccione un Trabajador"
@@ -174,14 +174,14 @@ class Form extends Component {
                                 shrink: true,
                                 native: true,
                                 MenuProps: {
-                                    name: "tipoEmpleado"
+                                    name: "trabajador"
                                 },
                             }}
 
                         >
-                            {tipoTrabajador_list.map((d, index) =>
+                            {user_list.map((d, index) =>
                                 <option key={index} value={d.id}>
-                                    {d.nombre}
+                                    {d.username}
                                 </option>
                             )}
                         </TextField>
@@ -227,20 +227,23 @@ class Form extends Component {
 
 Form.propTypes = {
     data: PropTypes.object,
-    tipoTrabajador_list: PropTypes.array
+    tipoTrabajador_list: PropTypes.array,
+    user_list: PropTypes.array
 }
 
 const mapStateToProps = (state, props) => {
     if (props.match.params.id) {
         return {
             data: state.trabajador.list.find(item => item.id + '' === props.match.params.id + ''),
-            tipoTrabajador_list: state.tipoTrabajador.list
+            tipoTrabajador_list: state.tipoTrabajador.list,
+            user_list: state.user.list
         }
     }
     return {
         data: null,
-        tipoTrabajador_list: state.tipoTrabajador.list
-    }
+        tipoTrabajador_list: state.tipoTrabajador.list,
+        user_list: state.user.list
+    }   
 
 }
 /*
@@ -258,6 +261,7 @@ export default connect(mapStateToProps, {
     getById,
     update,
     getTipoTrabajadorList,
+    getUserList,
 
 
 })(Form)
