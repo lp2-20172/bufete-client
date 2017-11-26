@@ -17,7 +17,8 @@ import DetalleAlquilerList from './catalogo/detalleAlquileres/List'
 import DetalleAlquilerForm from './catalogo/detalleAlquileres/Form'
 import UserList from './core/user/List'
 import UserForm from './core/user/Form'
-
+import PersonaList from './core/persona/List'
+import PersonaForm from './core/persona/Form'
 
 
 
@@ -229,7 +230,7 @@ const routes = [
      
 
        {
-        path: '/core/users/list',
+        path: '/core/personas/list',
         exact: true,
         title: 'users',
         icon: 'send',
@@ -249,6 +250,30 @@ const routes = [
         title: 'User Edit!',
         icon: 'send',
         component: UserForm,
+        novisible: true
+      }, 
+
+       {
+        path: '/core/personas/list',
+        exact: true,
+        title: 'personas',
+        icon: 'send',
+        component: PersonaList
+      },
+      {
+        path: '/core/personas/new',
+        exact: true,
+        title: 'Persona New!',
+        icon: 'send',
+        component: PersonaForm,
+        novisible: true
+      },
+      {
+        path: '/core/personas/edit/:id',
+        exact: true,
+        title: 'Perona Edit!',
+        icon: 'send',
+        component: PersonaForm,
         novisible: true
       }, 
 

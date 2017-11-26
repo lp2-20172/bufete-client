@@ -7,7 +7,7 @@ import TextField from 'material-ui/TextField';
 import Table, { TableBody, TableCell, TableHead, TableRow } from 'material-ui/Table';
 import Paper from 'material-ui/Paper';
 
-import { getList, del } from '../../../actions/alquiler-action'
+import { getList, del } from '../../../actions/user-action'
 import { connect } from 'react-redux'
 
 import Button from 'material-ui/Button';
@@ -29,15 +29,15 @@ class List extends Component {
     }
 
     handleClick = () => {
-        this.props.history.push('/catalogo/alquileres/new');
+        this.props.history.push('/core/users/new');
     }
 
     render() {
         let { list, del } = this.props
         if (list) {
-
-        } else {
-            list = []
+            
+        } else{
+            list =[]
 
         }
 
@@ -50,10 +50,10 @@ class List extends Component {
                             R
                           </Avatar>
                     }
-                    title="alquileres de List"
-                    subheader="Lista de Alquileres"
-
+                    title="User List"
+                    subheader="Users list"
                 />
+
                 <CardContent>
                     <Typography component="p">
                         q={this.props.q}
@@ -65,8 +65,8 @@ class List extends Component {
                         value={this.props.q}
                         onChange={this.change}
                         margin="normal"
-
                     />
+
                     <Button fab color="primary" aria-label="add" onClick={this.handleClick}>
                         <AddIcon />
                     </Button>
@@ -78,12 +78,9 @@ class List extends Component {
                             <TableHead>
                                 <TableRow>
                                     <TableCell>#</TableCell>
-                                    <TableCell >Cliente</TableCell>
-                                    <TableCell >Oficina</TableCell>
-                                    <TableCell >Trabajador</TableCell>
-                                    <TableCell >Fecha Entrada</TableCell>
-                                    <TableCell >Fecha Salida</TableCell>
-
+                                    <TableCell >User Name</TableCell>
+                                    <TableCell >Email</TableCell>
+                                    <TableCell >Estado</TableCell>
                                     <TableCell >Edit</TableCell>
                                     <TableCell >Delete</TableCell>
                                 </TableRow>
@@ -93,16 +90,11 @@ class List extends Component {
                                 {list.map((d, index) =>
                                     <TableRow key={index}>
                                         <TableCell numeric>{index + 1}</TableCell>
-                                        <TableCell >{d.cliente}</TableCell>
-                                        <TableCell >{d.oficina}</TableCell>
-                                        <TableCell >{d.trabajador}</TableCell>
-                                        <TableCell >{d.fechaIngreso}</TableCell>
-                                        <TableCell >{d.fechaSalida}</TableCell>
-
-
-
+                                        <TableCell >{d.username}</TableCell>
+                                        <TableCell >{d.email}</TableCell>
+                                        <TableCell >{d.is_staff}</TableCell>
                                         <TableCell >
-                                            <Link to={`/catalogo/alquileres/edit/${d.id}`} className="ui basic button green">Edit</Link>
+                                            <Link to={`/core/users/edit/${d.id}`} className="ui basic button green">Edit</Link>
                                         </TableCell>
                                         <TableCell >
                                             <Button onClick={() => del(d.id, this.props.history)} >Delete</Button>
@@ -124,7 +116,7 @@ List.propTypes = {
 
 const mapStateToProps = (state) => {
     return {
-        list: state.alquiler.list
+        list: state.user.list
     }
 }
 
