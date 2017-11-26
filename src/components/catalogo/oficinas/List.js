@@ -97,7 +97,7 @@ class List extends Component {
                                     <TableRow key={index}>
                                         <TableCell numeric>{index + 1}</TableCell>
                                         <TableCell >{d.codigo}</TableCell>
-                                        <TableCell >{d.estado}</TableCell>
+                                        <TableCell >{d.estado ? "Activo" : "Inactivo"}</TableCell>
                                         <TableCell >{d.descripcion}</TableCell>
                                         <TableCell >S/.{d.precio}</TableCell>
                                         <TableCell >{d.categoria_nombre}</TableCell>
