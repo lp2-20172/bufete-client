@@ -4,30 +4,30 @@ import client from './'
 
 //https://github.com/brandiqa/redux-crud-example/blob/master/src/actions/contact-actions.js#L22
 
-const url = '/api-core/users/'
+const url = '/api-core/personas/'
 
-export const USER_LIST_REQUEST = "USER_LIST_REQUEST"
-export const USER_LIST_SUCCESS = 'USER_LIST_SUCCESS'
-export const USER_LIST_FAILURE = 'USER_LIST_FAILURE'
+export const PERSONA_LIST_REQUEST = "PERSONA_LIST_REQUEST"
+export const PERSONA_LIST_SUCCESS = 'PERSONA_LIST_SUCCESS'
+export const PERSONA_LIST_FAILURE = 'PERSONA_LIST_FAILURE'
 
-export const userList = () => ({
-    type: USER_LIST_REQUEST,
+export const personaList = () => ({
+    type: PERSONA_LIST_REQUEST,
 })
 
-export const userListSuccess = (list) => ({
-    type: USER_LIST_SUCCESS,
+export const personaListSuccess = (list) => ({
+    type: PERSONA_LIST_SUCCESS,
     list
 })
 
-export const userListFailure = error => ({
-    type: USER_LIST_FAILURE,
+export const personaListFailure = error => ({
+    type: PERSONA_LIST_FAILURE,
     error
 })
 
-export const USER_ADD = "USER_ADD"
-export const USER_FETCH = "USER_FETCH"
-export const USER_UPDATE = "USER_UPDATE"
-export const USER_DELETE = "USER_DELETE"
+export const PERSONA_ADD = "PERSONA_ADD"
+export const PERSONA_FETCH = "PERSONA_FETCH"
+export const PERSONA_UPDATE = "PERSONA_UPDATE"
+export const PERSONA_DELETE = "PERSONA_DELETE"
 
 export const getList = (q = '') => {
     let params = {
@@ -37,18 +37,18 @@ export const getList = (q = '') => {
     }
     return (dispatch) => {
         client.get(url, params).then(r => {
-            dispatch(userListSuccess(r.data))
+            dispatch(personaListSuccess(r.data))
         }).catch(error => { //throw (error)
             //console.log('getList catch:' + JSON.stringify(error.response))
             if (error.response) {
-                dispatch(userListFailure(error.response.data.detail))
+                dispatch(personaListFailure(error.response.data.detail))
             } else if (error.request) {
                 console.log(error.request);
-                dispatch(userListFailure(JSON.stringify('Error '+error.request)))
+                dispatch(personaListFailure(JSON.stringify('Error '+error.request)))
             } else {
                 // Something happened in setting up the request that triggered an Error
                 console.log('Error', error.message);
-                dispatch(userListFailure('Error '+error.message))
+                dispatch(personaListFailure('Error '+error.message))
             }
             //console.log(error.config);
         })
@@ -61,10 +61,10 @@ export function save(data, history) {
         return client.post(url, data)
             .then((r) => {
                 dispatch({
-                    "type": USER_ADD,
+                    "type": PERSONA_ADD,
                     "data": r.data //no usado
                 })
-                history.push('/core/users/list')
+                history.push('/core/personas/list')
             })
             .catch((error) => {
                 console.log(error)
@@ -97,10 +97,10 @@ export function update(data, history) {
         return client.put(`${url}${data.id}/`, data)
             .then((r) => {
                 dispatch({
-                    "type": USER_UPDATE,
+                    "type": PERSONA_UPDATE,
                     "data": r.data //no usado
                 })
-                history.push('/core/users/list')
+                history.push('/core/personas/list')
             })
             .catch((error) => {
                 console.log(error)
@@ -115,7 +115,7 @@ export function del(_id, history) {
             .then((r) => {
                 //console.log('deletex r:' + JSON.stringify(r))
                 dispatch({
-                    "type": USER_DELETE,
+                    "type": PERSONA_DELETE,
                     "data": _id
                 })
                 //history.push('/catalogo/categorias')

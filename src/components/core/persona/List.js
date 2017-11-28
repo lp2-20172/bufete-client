@@ -7,7 +7,7 @@ import TextField from 'material-ui/TextField';
 import Table, { TableBody, TableCell, TableHead, TableRow } from 'material-ui/Table';
 import Paper from 'material-ui/Paper';
 
-import { getList, del } from '../../../actions/user-action'
+import { getList, del } from '../../../actions/persona-action'
 import { connect } from 'react-redux'
 
 import Button from 'material-ui/Button';
@@ -29,7 +29,7 @@ class List extends Component {
     }
 
     handleClick = () => {
-        this.props.history.push('/core/users/new');
+        this.props.history.push('/core/personas/new');
     }
 
     render() {
@@ -50,7 +50,7 @@ class List extends Component {
                             R
                           </Avatar>
                     }
-                    title="User List"
+                    title="Persona List"
                     subheader="Users list"
                 />
 
@@ -94,7 +94,7 @@ class List extends Component {
                                         <TableCell >{d.email}</TableCell>
                                         <TableCell >{d.is_staff}</TableCell>
                                         <TableCell >
-                                            <Link to={`/core/users/edit/${d.id}`} className="ui basic button green">Edit</Link>
+                                            <Link to={`/core/personas/edit/${d.id}`} className="ui basic button green">Edit</Link>
                                         </TableCell>
                                         <TableCell >
                                             <Button onClick={() => del(d.id, this.props.history)} >Delete</Button>
